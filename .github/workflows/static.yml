@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy Discord DEB to PPA repo
+name: Deploy Heroic DEB to PPA repo
 
 on:
   # Runs on pushes targeting the default branch
@@ -42,12 +42,16 @@ jobs:
           passphrase: ${{ secrets.KEY_PASSPHRASE }}
       - name: Export the Public Key
         run: |
-          gpg --output discordapt.gpg --armor --export $KEYNAME
+          gpg --output heroicapt.gpg --armor --export $KEYNAME
         env:
           KEYNAME: ${{ steps.gpg_key_import.outputs.keyid }}
-      - name: Get Latest Discord DEB
+      - name: Get Latest Heroic DEB
         run: |
-          wget "https://discord.com/api/download?platform=linux&format=deb" -O discord.deb
+          curl -s https://api.github.com/repos/Heroic-Games-Launcher/HeroicGamesLauncher/releases/latest \
+          | grep "browser_download_url.*deb" \
+          | cut -d : -f 2,3 \
+          | tr -d \" \
+          | wget -qi -
       - name: Setup Debian Repository
         run: |
           dpkg-scanpackages --multiversion . > Packages
@@ -55,7 +59,7 @@ jobs:
           apt-ftparchive release . >> Release
           echo $KEY_PASSPHRASE | gpg --yes --passphrase-fd 0 --default-key $KEYNAME -abs -o - Release > Release.gpg
           echo $KEY_PASSPHRASE | gpg --yes --passphrase-fd 0 --default-key $KEYNAME --clearsign -o - Release > InRelease
-          echo "deb [signed-by=/etc/apt/trusted.gpg.d/discordapt.gpg] https://grandmoff100.github.io/DiscordAPT/ ./" > discordapt.list
+          echo "deb [signed-by=/etc/apt/trusted.gpg.d/heroicapt.gpg] https://razuuu.github.io/heroic-apt/ ./" > heroicapt.list
         env:
           KEY_PASSPHRASE: ${{ secrets.KEY_PASSPHRASE }}
           KEYNAME: ${{ steps.gpg_key_import.outputs.keyid }}
