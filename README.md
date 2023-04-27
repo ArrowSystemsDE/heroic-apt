@@ -1,4 +1,4 @@
-# DiscordAPT
+# heroic-apt
 A Github Pages hosted APT/Debian repository for installing Heroic Games Launcher  
 
 Pulls the latest `deb` file from GitHub releases.
@@ -21,33 +21,33 @@ sudo apt install heroic
 gpg --full-generate-key
 ```
 
-Select the default options
-After it's done:
+Select the default options  
+After it's done:  
 
 ```bash
 gpg --list-secret-keys
 ```
 
 
-sec   rsa3072 2023-04-27 [SC]
-      ABCDEFGHIJKLMNOPQRSTUVWXYZ
-uid           [ultimate] Heroic Games Launcher <mail@example.com>
-ssb   rsa3072 2023-04-27 [E]
+sec   rsa3072 2023-04-27 [SC]  
+      ABCDEFGHIJKLMNOPQRSTUVWXYZ   
+uid           [ultimate] Heroic Games Launcher <mail@example.com>  
+ssb   rsa3072 2023-04-27 [E]  
 
-Copy ABCDEFGHIJKLMNOPQRSTUVWXYZ for Actions
-Also don't forget you're passphrase
+Copy ABCDEFGHIJKLMNOPQRSTUVWXYZ for Actions  
+Also don't forget you're passphrase  
 
 ## Setup Actions
 
 1. Go to settings
 2. Down to "Secrets and variables"
 3. "New repository secret"
-Name: KEY_PASSPHRASE
-Secret: <your passphrase>
+Name: KEY_PASSPHRASE  
+Secret: your passphrase  
 
 4. Now click on variables and select "New repository variable"
-Name: PRIVATE_KEY
-Value: <your private key>
+Name: PRIVATE_KEY  
+Value: your private key  
 
 ## Actions run
-Every night or manual
+Every night or manual  
