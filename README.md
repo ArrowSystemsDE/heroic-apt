@@ -25,16 +25,10 @@ Select the default options
 After it's done:  
 
 ```bash
-gpg --list-secret-keys
+gpg --armor --export-secret-key mail@example.com -w0
 ```
+Copy the output
 
-
-sec   rsa3072 2023-04-27 [SC]  
-      ABCDEFGHIJKLMNOPQRSTUVWXYZ   
-uid           [ultimate] Heroic Games Launcher <mail@example.com>  
-ssb   rsa3072 2023-04-27 [E]  
-
-Copy ABCDEFGHIJKLMNOPQRSTUVWXYZ for Actions  
 Also don't forget you're passphrase  
 
 ## Setup Actions
@@ -47,7 +41,7 @@ Secret: your passphrase
 
 4. Now click on variables and select "New repository variable"
 Name: PRIVATE_KEY  
-Value: your private key  
+Value: your private key block 
 
 ## Actions run
 Every night or manual  
