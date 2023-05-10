@@ -6,8 +6,8 @@ Pulls the latest `deb` file from GitHub releases.
 
 ## Install
 ```bash
-curl -s --compressed "https://deb.arrow-systems.de/heroic-apt/heroicapt.gpg" | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/heroicapt.gpg > /dev/null
-sudo curl -s --compressed -o /etc/apt/sources.list.d/heroicapt.list "https://deb.arrow-systems.de/heroic-apt/heroicapt.list"
+curl -s --compressed "https://deb.arrow-systems.de/heroicapt.gpg" | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/heroicapt.gpg > /dev/null
+sudo curl -s --compressed -o /etc/apt/sources.list.d/heroicapt.list "https://deb.arrow-systems.de/heroicapt.list"
 sudo apt update
 ```
 then type
@@ -134,7 +134,7 @@ Output of ```gpg --armor --export-secret-key john.doe@example.com -w0```
 1. Go to the `Settings` tab
 2. Down to `Pages`
 3. Change Source to `GitHub Actions`
-
+4. (optional) `Custom domain` -> `deb.example.com`
 ####
 
 ## Bind/Named or github.io domain
@@ -144,18 +144,10 @@ e.g
 ```echo "deb [signed-by=/etc/apt/trusted.gpg.d/heroicapt.gpg] https://arrowsystemsde.github.io/heroic-apt/ ./" > heroicapt.list```
 
 or
-```echo "deb [signed-by=/etc/apt/trusted.gpg.d/heroicapt.gpg] https://deb.arrow-systems.de/heroic-apt/ ./" > heroicapt.list```
+```echo "deb [signed-by=/etc/apt/trusted.gpg.d/heroicapt.gpg] https://deb.arrow-systems.de/ ./" > heroicapt.list```
 <hr>
 For custom domain purposes:
 
 ```bind
-deb     IN      A       185.199.108.153
-deb     IN      A       185.199.109.153
-deb     IN      A       185.199.110.153
-deb     IN      A       185.199.111.153
-
-deb     IN      AAAA    2606:50c0:8000::153
-deb     IN      AAAA    2606:50c0:8001::153
-deb     IN      AAAA    2606:50c0:8002::153
-deb     IN      AAAA    2606:50c0:8003::153
+deb	IN	CNAME	arrowsystemsde.github.io
 ```
