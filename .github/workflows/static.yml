@@ -64,7 +64,7 @@ jobs:
           KEY_PASSPHRASE: ${{ secrets.KEY_PASSPHRASE }}
           KEYNAME: ${{ steps.gpg_key_import.outputs.keyid }}
       - name: Setup Pages
-        uses: actions/configure-pages@v2
+        uses: actions/configure-pages@v3
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
