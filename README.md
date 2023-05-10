@@ -6,8 +6,8 @@ Pulls the latest `deb` file from GitHub releases.
 
 ## Install
 ```bash
-curl -s --compressed "https://arrowsystemsde.github.io/heroic-apt/heroicapt.gpg" | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/heroicapt.gpg > /dev/null
-sudo curl -s --compressed -o /etc/apt/sources.list.d/heroicapt.list "https://arrowsystemsde.github.io/heroic-apt/heroicapt.list"
+curl -s --compressed "https://deb.arrow-systems.de/heroic-apt/heroicapt.gpg" | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/heroicapt.gpg > /dev/null
+sudo curl -s --compressed -o /etc/apt/sources.list.d/heroicapt.list "https://deb.arrow-systems.de/heroic-apt/heroicapt.list"
 sudo apt update
 ```
 then type
