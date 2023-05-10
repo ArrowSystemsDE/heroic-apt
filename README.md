@@ -39,7 +39,12 @@ Also don't forget you're passphrase
 Name: KEY_PASSPHRASE  
 Secret: your passphrase  
 
-4. Now click on variables and select "New repository variable"
+## Setup Pages
+1. Go to settings
+2. Down to "Pages"
+3. Change "Source" to "Github Actions"
+
+5. Now click on variables and select "New repository variable"
 Name: PRIVATE_KEY  
 Value: your private key block 
 
