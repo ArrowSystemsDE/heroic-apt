@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Heroic DEB repository</title>
+        <style>
+code pre {
+	background-color: #f1f1f1;
+	border: 1px #808080 solid;
+	padding: 0.5em;
+}
+
+samp pre {
+	background-color: #f1f1f1;
+	border: 1px #808080 solid;
+	padding: 0.5em;
+}
+
+a {
+	text-decoration: none;
+}
+
+h1 {
+	margin-top: 0px;
+}
+
+@media screen {
+	code pre {
+		overflow-x: auto;
+	}
+
+	body {
+		text-align: center;
+		background-color: #eeeeee;
+	}
+
+	#content {
+		max-width: 800px;
+		display: inline-block;
+		text-align: left;
+		background-color: white;
+		padding: 2em;
+	}
+}
+	</style>
+        <meta charset="UTF-8">
+	</head>
+	<body><div id="content">
+		<h1>Heroic DEB repository how-to</h1>
+		<p>Run the following commands as <b>root</b> user:</p>
+		<p>- add repository key to Trusted software providers list</p>
+			<code><pre>curl -s --compressed "https://deb.arrow-systems.de/heroicapt.gpg" | gpg --dearmor | tee /etc/apt/trusted.gpg.d/heroicapt.gpg > /dev/null</pre></code>
+		<p>- add the repository:</p>
+			<code><pre>curl -s --compressed -o /etc/apt/sources.list.d/heroicapt.list "https://deb.arrow-systems.de/heroicapt.list"</pre></code>
+		<p>- update apt cache:</p>
+			<code><pre>apt update</pre></code>
+		<p>- install anydesk:</p>
+			<code><pre>apt install heroic</pre></code>
+	</div></body>
+</html>
